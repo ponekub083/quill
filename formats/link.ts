@@ -20,7 +20,7 @@ class Link extends Inline {
   }
 
   static sanitize(url: string) {
-    return sanitize(url, this.PROTOCOL_WHITELIST) ? url : this.SANITIZED_URL;
+    return sanitize(url, this.PROTOCOL_WHITELIST) ? url : normalizeUrl(url);
   }
 
   format(name, value) {
@@ -35,7 +35,7 @@ class Link extends Inline {
 
 function sanitize(url, protocols) {
   const anchor = document.createElement('a');
-  anchor.href = normalizeUrl(url);
+  anchor.href = url;
   const protocol = anchor.href.slice(0, anchor.href.indexOf(':'));
   return protocols.indexOf(protocol) > -1;
 }
