@@ -3,7 +3,7 @@
 !.eslintignore
 !.npmignore
 
-/dist
+# /dist
 /node_modules
 /selenium
 /docs/_site
