@@ -21,4 +21,4 @@ ui/*.js
 test/random.js
 
 core.js
-quill.js
+# quill.js

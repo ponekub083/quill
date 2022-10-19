@@ -8,8 +8,8 @@ class Link extends Inline {
   static PROTOCOL_WHITELIST = ['http', 'https', 'mailto', 'tel'];
 
   static create(value) {
-    const node = super.create(value) as Element;
-    node.setAttribute('href', this.sanitize(value));
+    const node = super.create(normalizeUrl(value)) as Element;
+    node.setAttribute('href', this.sanitize(normalizeUrl(value)));
     node.setAttribute('rel', 'noopener noreferrer');
     node.setAttribute('target', '_blank');
     return node;
@@ -20,7 +20,7 @@ class Link extends Inline {
   }
 
   static sanitize(url: string) {
-    return sanitize(url, this.PROTOCOL_WHITELIST) ? url : normalizeUrl(url);
+    return sanitize(url, this.PROTOCOL_WHITELIST) ? url : this.SANITIZED_URL;
   }
 
   format(name, value) {
