@@ -1,3 +1,4 @@
+import normalizeUrl from 'normalize-url';
 import Inline from '../blots/inline';
 
 class Link extends Inline {
@@ -34,7 +35,7 @@ class Link extends Inline {
 
 function sanitize(url, protocols) {
   const anchor = document.createElement('a');
-  anchor.href = url;
+  anchor.href = normalizeUrl(url);
   const protocol = anchor.href.slice(0, anchor.href.indexOf(':'));
   return protocols.indexOf(protocol) > -1;
 }

@@ -18,6 +18,7 @@
     "lodash.clonedeep": "^4.5.0",
     "lodash.isequal": "^4.5.0",
     "lodash.merge": "^4.5.0",
+    "normalize-url": "^7.2.0",
     "parchment": "^2.0.0",
     "quill-delta": "^5.0.0"
   },
