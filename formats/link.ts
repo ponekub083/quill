@@ -10,7 +10,7 @@ class Link extends Inline {
   static create(value) {
     const node = super.create(value) as Element;
     node.setAttribute('href', normalizeUrl(this.sanitize(value)));
-    node.setAttribute('rel', 'noopener noreferrer');
+    node.setAttribute('rel', 'noopener ponekub noreferrer');
     node.setAttribute('target', '_blank');
     return node;
   }
